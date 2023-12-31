@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Examples</title>
+</head>
+
+<!--Условное отображение-->
+<div th:if="${name !=null}">
+    <p>Hello, <span th:text="${name}"></span></p>
+</div>
+
+<!--Итэрация по списку-->
+<ul>
+    <li th:each="department : ${departments}" th:text="${department}"></li>
+</ul>
+
+<!--Вставка значение из обьекта-->
+<p th:text="${user.name}"></p>
+<p th:text="${user.email}"></p>
+
+<!--Обьект формы-->
+<form th:object="${user}" th:action="@{/example/save}" th:method="post" >
+    <input type="text" placeholder="name" th:field="*{name}">
+    <input type="email" placeholder="email" th:field="*{email}">
+    <button type="submit">save</button>
+</form>
+
+<!--Вставка фрагментов-->
+<div th:insert="~{example/fragments/header :: header}"></div>
+<div th:insert="~{example/fragments/footer :: footer}"></div>
+
+</html>

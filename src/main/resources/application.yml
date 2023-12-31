@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/tasks
+    username: postgres
+    password: postgres
+    hikari:
+      schema: tasks_schema
+
+#server:
+#  error:
+#    include-exception: true
+#    include-stacktrace: always
